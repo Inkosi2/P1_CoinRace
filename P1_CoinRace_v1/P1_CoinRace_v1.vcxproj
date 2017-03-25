@@ -21,12 +21,14 @@
   <ItemGroup>
     <ClInclude Include="CoinManager.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CoinManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
