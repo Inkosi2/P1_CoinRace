@@ -30,4 +30,14 @@ void main() {
 	//Variable que recoge la tecla pusada
 	Input::Key tecla;
 
+	//GameLoop
+	while (jugador.puntos < maxMonedas || jugador.gameESC == false) {
+		tecla = Input::getKey();
+		if (tecla != Input::Key::NONE) {
+			jugador.mover(jugador.x, jugador.y, tecla, map);
+		}
+		Map::printMap;
+		std::cout << std::endl << std::endl << "Tu puntuación es: " << jugador.puntos;
+	}
+
 }

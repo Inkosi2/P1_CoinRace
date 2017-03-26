@@ -30,7 +30,7 @@ void Map::matriz(int numFilas, int numColumnas, char **map)
 		map[x][y] = casilla;
 	}
 
-	void printMap() {
+	void Map::printMap() {
 		for (int i = 0; i < Filas; i++)
 		{
 			for (int j = 0; j < Columnas; j++) {

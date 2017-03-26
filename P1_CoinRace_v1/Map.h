@@ -7,6 +7,7 @@ class Map
 public:
 	
 	void matriz(int numFilas, int numColumnas, char **map);
+	void printMap();
 	Map(dificultad A);
 	~Map();
 

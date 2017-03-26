@@ -6,6 +6,8 @@
 
 CoinManager Z;
 
+bool gameESC;
+
 void Player::mover(int x, int y, Input::Key tecla, Map A) {
 	switch (tecla)
 	{
@@ -59,12 +61,13 @@ void Player::mover(int x, int y, Input::Key tecla, Map A) {
 	case Input::Key::ENTER:
 		break;
 	case Input::Key::ESC:
+		gameESC = true;
 		break;
 	default:
 		break;
 	}
 }
-}
+
 
 Player::Player()
 {
@@ -75,5 +78,4 @@ Player::Player()
 
 Player::~Player()
 {
-	delete[x][y]
 }
