@@ -37,7 +37,7 @@ void main() {
 			jugador.mover(jugador.x, jugador.y, tecla, map);
 		}
 		Map::printMap;
-		std::cout << std::endl << std::endl << "Tu puntuación es: " << jugador.puntos;
+		std::cout << std::endl << std::endl << "Tu puntuación es de: " << jugador.puntos;
 	}
 
 }
