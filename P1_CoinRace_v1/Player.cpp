@@ -4,58 +4,62 @@
 #include "CoinManager.h"
 #include <conio.h>
 
-CoinManager Z;
 
+//CoinManager Z;
 bool gameESC;
 
-void Player::mover(int x, int y, Input::Key tecla, Map A) {
+void Player::mover(int &x, int &y, int &puntos, Input::Key tecla) {
+
+	//Posición inicial en 0,0
+
 	switch (tecla)
 	{
 	case Input::Key::NONE:
 		break;
 	case Input::Key::W:
-		if (y > 0) {
-			A.map[x][y] = '.';
-			if (y - 1 == '$') {
+		if (x != 0) {
+			mimapa.map[x][y] = '.';
+			if (mimapa.map[x - 1][y] == '$') {
 				puntos++;
-				Z.eliminarMoneda(A, x, y-1);
+				micoinmanager.eliminarMoneda(x - 1, y);
 			}
-			y--;
-			A.map[x][y] = '@';
+			x--;
+			mimapa.map[x][y] = '@';
 		}
 		break;
 	case Input::Key::A:
-		if (x > 0) {
-			A.map[x][y] = '.';
-			if (x - 1 == '$') {
+		if (y != 0) {
+			mimapa.map[x][y] = '.';
+			if (mimapa.map[x][y - 1] == '$') {
 				puntos++;
-				Z.eliminarMoneda(A, x - 1, y);
-				x--;
+				micoinmanager.eliminarMoneda(x, y - 1);
+
 			}
-			A.map[x][y] = '@';
+			y--;
+			mimapa.map[x][y] = '@';
 		}
-		
+
 		break;
 	case Input::Key::S:
-		if (x < A.Columnas) {
-			A.map[x][y] = '.';
-			if (y + 1 == '$') {
+		if (x != mimapa.Filas - 1) {
+			mimapa.map[x][y] = '.';
+			if (mimapa.map[x + 1][y] == '$') {
 				puntos++;
-				Z.eliminarMoneda(A, x, y + 1);
+				micoinmanager.eliminarMoneda(x + 1, y);
 			}
 			x++;
-			A.map[x][y] = '@';
+			mimapa.map[x][y] = '@';
 		}
 		break;
 	case Input::Key::D:
-		if (y < A.Filas) {
-			A.map[x][y] = '.';
-			if (x + 1 == '$') {
+		if (y != mimapa.Columnas - 1) {
+			mimapa.map[x][y] = '.';
+			if (mimapa.map[x][y + 1] == '$') {
 				puntos++;
-				Z.eliminarMoneda(A, x + 1, y);
+				micoinmanager.eliminarMoneda(x, y + 1);
 			}
 			y = y + 1;
-			A.map[x][y] = '@';
+			mimapa.map[x][y] = '@';
 		}
 		break;
 	case Input::Key::ENTER:
@@ -69,10 +73,13 @@ void Player::mover(int x, int y, Input::Key tecla, Map A) {
 }
 
 
-Player::Player()
+Player::Player(Map &a, CoinManager &b) : mimapa(a), micoinmanager(b)
 {
 	x = 0;
 	y = 0;
+	puntos = 0;
+	mimapa.map[x][y] = '@';
+
 }
 
 

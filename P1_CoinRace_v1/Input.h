@@ -7,8 +7,8 @@ namespace Input
 	{
 		NONE, W, A, S, D, ENTER, ESC
 	};
-	
-		static Key getKey() // returns the key that has been pressed
+
+	static Key getKey() // returns the key that has been pressed
 	{
 		if (_kbhit())
 		{

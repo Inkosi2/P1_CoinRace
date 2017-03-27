@@ -4,10 +4,12 @@ class CoinManager
 {
 
 public:
-	void rellenarMapa(Map A);
-	void eliminarMoneda(Map A, int x, int y);
-	
-	CoinManager(Map A);
+	int numMonedas;
+	void rellenarMapa();
+	void eliminarMoneda(int x, int y);
+	Map &mimapa;
+	CoinManager(Map &A);
 	~CoinManager();
 };
+
 
